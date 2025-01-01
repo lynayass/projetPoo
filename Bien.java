@@ -67,6 +67,7 @@ public class Bien {
         return typeDeBien;
     }
    
+    
 
     @Override
     public String toString(){

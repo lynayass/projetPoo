@@ -1,3 +1,4 @@
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.List;
@@ -7,13 +8,14 @@ import java.util.Scanner;
 
 public class App {
 private static final List<Agents> agents = new ArrayList<>();
+private static final List<RendezVous> rendezVousList = new ArrayList<>();
     public static void main(String[] args) throws Exception {
         boolean v = true ;
         Scanner scanner = new Scanner(System.in);
         ArrayList<Bien> biens = new ArrayList<>();
         
         while (v == true) {
-            System.out.println("Bonjour! que vouliez vous faire : \n 1-creer\n 2-modifier \n 3-afficher \n 4-supprimer \n 5-rechercher \n 6-affecter \n 7-quitter\n ");
+            System.out.println("Bonjour! que vouliez vous faire : \n 1-creer bien \n 2-modifier bien \n 3-afficher bien \n 4-supprimer bien \n 5-rechercher bien \n 6-affecter bien \n 7- prendre un rendez-vous \n 8- afficher rendez-vous \n 9-quitter\n ");
 
             int index = scanner.nextInt();
             switch (index) {
@@ -38,6 +40,13 @@ private static final List<Agents> agents = new ArrayList<>();
                     break;
                 
                 case 7:
+                ajouterRendezVous(biens);
+                    break;
+                
+                case 8:
+                afficherRendezVous();
+                    break;
+                case 9:
                     v = false;
                     System.out.println("Merci d'avoir utilisé notre application.");
                     break;   
@@ -238,7 +247,41 @@ private static final List<Agents> agents = new ArrayList<>();
     scanner.next(); // Consomme l'entrée invalide
 }
 }
-}   
+// Méthode pour ajouter un rendez-vous
+public static void ajouterRendezVous(ArrayList<Bien> biens) {
+    Scanner scanner = new Scanner(System.in);
+    afficherBiens(biens);
+    System.out.print("Entrez l'index du bien pour le rendez-vous : ");
+    int index = scanner.nextInt();
+    if (index >= 1 && index <= biens.size()) {
+        // Adjusted index access to start from 1
+        Bien bien = biens.get(index - 1);
+        System.out.print("Entrez la date (AAAA-MM-JJ): ");
+        String dateInput = scanner.next();
+        System.out.print("Entrez l'heure (HH:MM): ");
+        String heureInput = scanner.next();
+        String dateHeureInput = dateInput + "T" + heureInput + ":00";
+        LocalDateTime dateHeure = LocalDateTime.parse(dateHeureInput);
+        RendezVous rendezVous = new RendezVous(bien, dateHeure);
+        rendezVousList.add(rendezVous);
+        System.out.println("Rendez-vous ajouté : " + rendezVous);
+    } else {
+        System.out.println("Index invalide !");
+    }
+}
+
+public static void afficherRendezVous() {
+    if (rendezVousList.isEmpty()) {
+        System.out.println("Aucun rendez-vous enregistré.");
+    } else {
+        System.out.println("Liste des rendez-vous :");
+        for (RendezVous rv : rendezVousList) {
+            System.out.println(rv);
+        }
+    }
+}
+}
+  
 
 
 

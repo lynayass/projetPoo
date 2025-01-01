@@ -1,17 +1,28 @@
-import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
+import javax.imageio.ImageIO;
+import javax.swing.*;
+
 public class AppGUI extends JFrame {
     private static final ArrayList<Agents> agents = new ArrayList<>();
     private static final ArrayList<Bien> biens = new ArrayList<>();
-
+    private ArrayList<RendezVous> rendezVousList = new ArrayList<>();
+    
     public AppGUI() {
-        setTitle("Gestion des Biens");
+        setTitle("Agence Immobilière");
         setSize(400, 300);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
+                
+                // Ajouter un fond d'écran à la fenêtre
+                String imagePath = "D:\\dev\\BienImmobilier\\BienImmobilier\\agence immo.jpg"; 
+                BackgroundPanel backgroundPanel = new BackgroundPanel(imagePath); 
+                setContentPane(backgroundPanel); 
         
         // Créer un panneau pour les boutons
         JPanel panel = new JPanel();
@@ -23,9 +34,15 @@ public class AppGUI extends JFrame {
         JButton afficherButton = new JButton("Afficher les Biens");
         JButton supprimerButton = new JButton("Supprimer un Bien");
         JButton rechercherButton = new JButton("Rechercher un Bien");
-        JButton affecterButton = new JButton("Affecter un Bien");
+        JButton affecterButton = new JButton("Affecter un Bien"); 
+        JButton prendreRendezVousButton = new JButton("Prendre Rendez-Vous");
+        JButton afficherRendezVousButton = new JButton("Afficher Rendez-Vous");
         JButton quitterButton = new JButton("Quitter");
+        
 
+        // Add buttons to the frame
+        panel.add(prendreRendezVousButton);
+        panel.add(afficherRendezVousButton);
         // Ajouter des ActionListeners aux boutons
         creerButton.addActionListener(new ActionListener() {
             @Override
@@ -186,6 +203,34 @@ public class AppGUI extends JFrame {
             }
         });
 
+        prendreRendezVousButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String agentNom = JOptionPane.showInputDialog("Entrez le nom de l'agent :");
+                String agentPrenom = JOptionPane.showInputDialog("Entrez le prénom de l'agent :");
+                String date = JOptionPane.showInputDialog("Entrez la date du rendez-vous (AAAA-MM-JJ) :");
+                String heure = JOptionPane.showInputDialog("Entrez l'heure du rendez-vous (HH:MM) :");
+
+                LocalDateTime dateHeure = LocalDateTime.parse(date + "T" + heure + ":00");
+                RendezVous rendezVous = new RendezVous(agentNom, agentPrenom, dateHeure);
+                rendezVousList.add(rendezVous);
+                JOptionPane.showMessageDialog(AppGUI.this, "Rendez-vous pris avec " + agentNom + " " + agentPrenom + " le " + date + " à " + heure);
+            }
+        });
+        afficherRendezVousButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (rendezVousList.isEmpty()) {
+                    JOptionPane.showMessageDialog(AppGUI.this, "Aucun rendez-vous disponible.");
+                } else {
+                    StringBuilder rendezVousListStr = new StringBuilder("Rendez-vous : \n");
+                    for (int i = 0; i < rendezVousList.size(); i++) {
+                        rendezVousListStr.append(i + 1).append(": ").append(rendezVousList.get(i)).append("\n");
+                    }
+                    JOptionPane.showMessageDialog(AppGUI.this, rendezVousListStr.toString());
+                }
+            }
+        });
         quitterButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -202,6 +247,8 @@ public class AppGUI extends JFrame {
         panel.add(supprimerButton);
         panel.add(rechercherButton);
         panel.add(affecterButton);
+        panel.add(prendreRendezVousButton);
+        panel.add(afficherRendezVousButton);
         panel.add(quitterButton);
 
         // Ajouter le panneau à la fenêtre
@@ -416,5 +463,24 @@ public class AppGUI extends JFrame {
             AppGUI app = new AppGUI();
             app.setVisible(true);
         });
+    }
+    class BackgroundPanel extends JPanel {
+        private BufferedImage image; 
+        
+        public BackgroundPanel(String imagePath) {
+            try {
+                image = ImageIO.read(new File(imagePath)); 
+            } catch (IOException e) {
+                e.printStackTrace(); 
+            }
+        }
+    
+        @Override
+        protected void paintComponent(Graphics g) {
+            super.paintComponent(g); 
+            if (image != null) {
+                g.drawImage(image, 0, 0, getWidth(), getHeight(), this);
+            }
+        }
     }
 }
