@@ -42,20 +42,25 @@ Ce projet consiste à développer une application de gestion d'agence immobiliè
 
 
 ## Installation et Configuration
- 1. Clonez ce depot GitHub sur votre machine locale :
-    \``bash
-  git clone https://github.com/votre-utilisateur/application-agence-immobiliere.git
-   \``
-echo.
-echo 2. Accedez au repertoire du projet :
-echo    \``bash
-echo    cd application-agence-immobiliere
-echo    \``
 
-) > README.md
+1. Clonez ce dépôt GitHub sur votre machine locale :
+   ```bash
+   git clone https://github.com/votre-utilisateur/application-agence-immobiliere.git
+Accédez au répertoire du projet :
 
-echo README.md generated successfully.
-pause
+bash
+cd application-agence-immobiliere
+Assurez-vous d'avoir Java Development Kit (JDK) installé. Vous pouvez vérifier avec la commande :
 
+bash
+java -version
+Compilez le projet :
+
+bash
+javac -d bin src/*.java
+Démarrez l'application :
+
+bash
+java -cp bin Main
 Utilisation
 Une fois l'application démarrée, vous pouvez accéder à l'interface utilisateur en utilisant Java Swing pour gérer les biens immobiliers, les clients et les transactions. Utilisez les fonctionnalités de l'application pour automatiser et optimiser les processus de gestion immobilière.
