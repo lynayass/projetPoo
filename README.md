@@ -39,23 +39,19 @@ Ce projet consiste à développer une application de gestion d'agence immobiliè
 
 ## Installation et Configuration
 
-@echo off
-echo Generating README.md
 
-(
-echo # Application de Gestion d'Agence Immobilière
-echo.
-echo ## Installation et Configuration
-echo 1. Clonez ce depot GitHub sur votre machine locale :
-echo    \``bash
-echo    git clone https://github.com/votre-utilisateur/application-agence-immobiliere.git
-echo    \``
+
+## Installation et Configuration
+ 1. Clonez ce depot GitHub sur votre machine locale :
+    \``bash
+  git clone https://github.com/votre-utilisateur/application-agence-immobiliere.git
+   \``
 echo.
 echo 2. Accedez au repertoire du projet :
 echo    \``bash
 echo    cd application-agence-immobiliere
 echo    \``
-echo.
+
 ) > README.md
 
 echo README.md generated successfully.
