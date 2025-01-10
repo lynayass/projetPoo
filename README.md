@@ -1,55 +1,47 @@
-README: Application de Gestion d'Agence Immobilière
-Introduction
+# Application de Gestion d'Agence Immobilière
+
+## Introduction
+
 Ce projet consiste à développer une application de gestion d'agence immobilière avec une interface utilisateur en Java Swing. L'objectif est d'automatiser et d'optimiser la gestion des biens immobiliers, des clients et des transactions. Cela permettra aux agents immobiliers de travailler de manière plus efficace et d'améliorer la satisfaction des clients.
 
-Objectifs
-Faciliter la gestion des biens immobiliers disponibles à la vente ou à la location.
+## Objectifs
 
-Automatiser le processus de recherche et de sélection de biens pour les clients.
+- Faciliter la gestion des biens immobiliers disponibles à la vente ou à la location.
+- Automatiser le processus de recherche et de sélection de biens pour les clients.
+- Suivre et gérer les transactions immobilières, y compris les contrats de location et de vente.
+- Gérer les informations des clients et des propriétaires de biens.
+- Fournir des fonctionnalités de reporting pour l'analyse des performances de l'agence.
 
-Suivre et gérer les transactions immobilières, y compris les contrats de location et de vente.
+## Exigences Fonctionnelles
 
-Gérer les informations des clients et des propriétaires de biens.
+### Gestion des biens immobiliers
+- Ajouter, modifier et supprimer des biens immobiliers avec leurs caractéristiques (type, taille, prix, localisation, etc.).
+- Ajouter des descriptions détaillées pour chaque bien immobilier.
+- Rechercher des biens immobiliers en fonction de critères spécifiques (prix, type, localisation, etc.).
+- Affecter des biens à des agents immobiliers pour la gestion.
 
-Fournir des fonctionnalités de reporting pour l'analyse des performances de l'agence.
+### Gestion des clients
+- Ajouter, modifier et supprimer des informations clients (acheteurs, locataires, vendeurs, bailleurs).
+- Suivre l'historique des interactions avec les clients.
+- Gérer les demandes et les préférences des clients en matière de biens immobiliers.
 
-Exigences Fonctionnelles
-Gestion des biens immobiliers
-Ajouter, modifier et supprimer des biens immobiliers avec leurs caractéristiques (type, taille, prix, localisation, etc.).
+### Gestion des transactions
+- Créer et suivre les transactions immobilières (ventes, locations, contrats).
+- Générer des contrats de location et de vente automatiquement.
+- Enregistrer les paiements et les échéances associées aux transactions.
 
-Ajouter des descriptions détaillées pour chaque bien immobilier.
+### Fonctionnalités additionnelles
+- Gestion des rendez-vous pour les visites de biens immobiliers.
 
-Rechercher des biens immobiliers en fonction de critères spécifiques (prix, type, localisation, etc.).
+## Présentations Requises
+- Une présentation PowerPoint (PPT)
+- Un rapport détaillé
 
-Affecter des biens à des agents immobiliers pour la gestion.
+## Installation et Configuration
 
-Gestion des clients
-Ajouter, modifier et supprimer des informations clients (acheteurs, locataires, vendeurs, bailleurs).
-
-Suivre l'historique des interactions avec les clients.
-
-Gérer les demandes et les préférences des clients en matière de biens immobiliers.
-
-Gestion des transactions
-Créer et suivre les transactions immobilières (ventes, locations, contrats).
-
-Générer des contrats de location et de vente automatiquement.
-
-Enregistrer les paiements et les échéances associées aux transactions.
-
-Fonctionnalités additionnelles
-Gestion des rendez-vous pour les visites de biens immobiliers.
-
-Présentations Requises
-Une présentation PowerPoint (PPT)
-
-Un rapport détaillé
-
-Installation et Configuration
-Clonez ce dépôt GitHub sur votre machine locale :
-
-bash
-git clone https://github.com/votre-utilisateur/application-agence-immobiliere.git
+1. Clonez ce dépôt GitHub sur votre machine locale :
+   ```bash
+   git clone https://github.com/votre-utilisateur/application-agence-immobiliere.git
 Accédez au répertoire du projet :
 
 bash
