@@ -33,9 +33,10 @@ Ce projet consiste à développer une application de gestion d'agence immobiliè
 ### Fonctionnalités additionnelles
 - Gestion des rendez-vous pour les visites de biens immobiliers.
 
-## Présentations Requises
+## Présentations 
 - Une présentation PowerPoint (PPT)
 - Un rapport détaillé
+- un diagrame 
 
 ## Installation et Configuration
 
